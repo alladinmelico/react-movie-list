@@ -1,11 +1,7 @@
-import React from 'react' 
+import React from 'react'
 
 const Footer = () => {
-    return (
-        <footer>
-            © Alladin Melico
-        </footer>
-    )
+	return <footer>© 2020 Alladin Melico</footer>
 }
 
 export default Footer
