@@ -17,8 +17,22 @@ class MainContent extends React.Component {
 
 	async fetchTrending(page) {
 		try {
+			const fetchKey = await fetch(
+				'https://api.heroku.com/apps/reactmovielist/config-vars',
+				{
+					method: 'GET',
+					headers: {
+						Authorization:
+							'Bearer 4c782854-5f8d-4bc3-9fc7-81ce1c1a8a9a',
+						'Content-Type': 'application/json',
+						Accept: 'application/vnd.heroku+json; version=3',
+					},
+				}
+			)
+			const apiKey = await fetchKey.json()
+
 			const res = await fetch(
-				`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMD_API}&page=${page}`
+				`https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey.REACT_APP_TMD_API}&page=${page}`
 			)
 			if (!res.ok) throw new Error(res.status)
 
