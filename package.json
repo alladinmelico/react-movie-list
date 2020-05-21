@@ -5,6 +5,9 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "cd client/movie-list && npm run build",
+		"install-client": "cd client/movie-list && npm install",
+		"heroku-postbuild": "npm run install-client build && npm run build",
 		"start": "nodemon server.js"
 	},
 	"repository": {
@@ -19,11 +22,15 @@
 	"homepage": "https://github.com/alladinmelico/react-movie-list#readme",
 	"dependencies": {
 		"@hapi/joi": "^17.1.1",
+		"bcryptjs": "^2.4.3",
 		"body-parser": "^1.19.0",
+		"concurrently": "^5.2.0",
 		"cors": "^2.8.5",
 		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
+		"jsonwebtoken": "^8.5.1",
 		"mongoose": "^5.9.14",
+		"morgan": "^1.10.0",
 		"nodemon": "^2.0.4"
 	}
 }
